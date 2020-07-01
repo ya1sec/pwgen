@@ -15,7 +15,7 @@ const randomizer = {
   special: randomSpecial,
 };
 
-// Generate password button event listener
+// Generate button event listener
 generateElement.addEventListener("click", () => {
   const length = +lengthElement.value;
   const hasLower = lowercaseElement.checked;
