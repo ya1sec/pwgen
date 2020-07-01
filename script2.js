@@ -1,4 +1,4 @@
-// DOM elements
+// Define DOM elements
 const resultElement = document.getElementById("result");
 const lengthElement = document.getElementById("length");
 const uppercaseElement = document.getElementById("uppercase");
@@ -74,6 +74,11 @@ function generatePassword(lower, upper, number, special, length) {
   // if no boxes are checked, return "please enter requirements"
   if (typesCount === 0) {
     return "please enter requirements";
+  }
+
+  // if user enters a length outside of the suggested range, error message displays in resultElement
+  if (length < 8 || length > 128) {
+    return "please choose a length between 8-128 characters";
   }
 
   // loop over length, call generator function for each type
