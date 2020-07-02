@@ -8,6 +8,7 @@ const specialElement = document.getElementById("special");
 const generateElement = document.getElementById("generate");
 const clipboardElement = document.getElementById("clipboard");
 
+// create random function object
 const randomizer = {
   lower: randomLower,
   upper: randomUpper,
@@ -15,7 +16,7 @@ const randomizer = {
   special: randomSpecial,
 };
 
-// Generate button event listener
+// add event listener for generate button
 generateElement.addEventListener("click", () => {
   const length = +lengthElement.value;
   const hasLower = lowercaseElement.checked;
@@ -62,8 +63,6 @@ function generatePassword(lower, upper, number, special, length) {
   // count the checked boxes
   const typesCount = lower + upper + number + special;
 
-  //   console.log("typesCount: ", typesCount);
-
   // filter through checkboxes and remove false values
   const typesArr = [{ lower }, { upper }, { number }, { special }].filter(
     (item) => Object.values(item)[0]
@@ -81,11 +80,13 @@ function generatePassword(lower, upper, number, special, length) {
     return "please choose a length between 8-128 characters";
   }
 
-  // loop over length, call generator function for each type
+  // loop over length, call generator function for each type. increment number of checked boxes
   for (let i = 0; i < length; i += typesCount) {
     typesArr.forEach((type) => {
+      // loop through types, producing either upper, lower, number, or special
       const funcName = Object.keys(type)[0];
 
+      // append randomizer function, using funcName as a key
       generatedPassword += randomizer[funcName]();
     });
   }
