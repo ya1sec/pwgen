@@ -57,8 +57,10 @@ clipboardElement.addEventListener("click", () => {
 function generatePassword(lower, upper, number, special, length) {
   // filter out unchecked types
 
-  // give pw var a value from final result and return it to resultElement
+  // initialize generated pw var
   let generatedPassword = "";
+
+  // let shuffledPassword = "";
 
   // count the checked boxes
   const typesCount = lower + upper + number + special;
@@ -92,6 +94,18 @@ function generatePassword(lower, upper, number, special, length) {
   }
   // give variable finalPassword a value by extracting a string from the generated password
   const finalPassword = generatedPassword.slice(0, length);
+
+  // function shuffle(finalPassword) {
+  //   var finalPassword = generatedPassword.slice(0, length);
+  //   for (var i = finalPassword.length; i > 0; ) {
+  //     var random = parseInt(Math.random() * i);
+  //     var temp = finalPassword[--i];
+  //     finalPassword[i] = finalPassword[random];
+  //     finalPassword[random] = temp;
+  //   }
+  //   return finalPassword.join("");
+  // }
+
   // give pw var a value from final result and return it to resultElement
   return finalPassword;
 }
