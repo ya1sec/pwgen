@@ -24,6 +24,7 @@ generateElement.addEventListener("click", () => {
   const hasNumber = numberElement.checked;
   const hasSpecial = specialElement.checked;
 
+  // inner text of password result holds value of generatePassword function given all values obtained from event listener and returned function.
   resultElement.innerText = generatePassword(
     hasLower,
     hasUpper,
@@ -106,7 +107,7 @@ function generatePassword(lower, upper, number, special, length) {
   //   return finalPassword.join("");
   // }
 
-  // give pw var a value from final result and return it to resultElement
+  // give pw var a value from final result and return it to resultElement as a string
   return finalPassword;
 }
 
