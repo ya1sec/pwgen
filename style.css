@@ -88,6 +88,6 @@ input[type="checkbox"] {
 
 @media screen and (max-width: 400px) {
   .result-container {
-    font-size: 8px;
+    font-size: 12px;
   }
 }
